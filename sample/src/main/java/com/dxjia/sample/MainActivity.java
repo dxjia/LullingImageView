@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import com.dxjia.lulling.LullingImageView;
 import com.dxjia.lulling.R;
@@ -14,7 +13,8 @@ public class MainActivity extends Activity {
 
     LullingImageView mImageView1;
     LullingImageView mImageView2;
-    Button mToggleAllButton;
+    LullingImageView mImageView3;
+    LullingImageView mImageView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,23 @@ public class MainActivity extends Activity {
             }
         });
 
-        mToggleAllButton = (Button) findViewById(R.id.toggle);
-        mToggleAllButton.setOnClickListener(new View.OnClickListener() {
+        mImageView3 = (LullingImageView) findViewById(R.id.test3);
+        mImageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mImageView1.toggle();
-                mImageView2.toggle();
+                mImageView3.toggle();
             }
         });
+
+        mImageView4 = (LullingImageView) findViewById(R.id.test4);
+        mImageView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mImageView4.toggle();
+            }
+        });
+
+
     }
 
     @Override
@@ -61,7 +70,11 @@ public class MainActivity extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_Setting) {
+        if (id == R.id.action_Toggle) {
+            mImageView1.toggle();
+            mImageView2.toggle();
+            mImageView3.toggle();
+            mImageView4.toggle();
             return true;
         }
 
