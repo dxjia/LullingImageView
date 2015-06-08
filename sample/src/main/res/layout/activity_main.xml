@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dxjia.sample.MainActivity">
+
+    <com.dxjia.lulling.LullingImageView
+        android:id="@+id/test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/test1"
+        app:autoPlay="true"
+        app:scaleValue="1.2"
+        app:duration="6000"/>
+
+    <com.dxjia.lulling.LullingImageView
+        android:id="@+id/test2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@mipmap/test2"
+        app:autoPlay="false"
+        app:scaleValue="1.5"
+        app:duration="8000"/>
+
+    <Button
+        android:id="@+id/toggle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "Toggle All"/>
+</LinearLayout>
