@@ -1,6 +1,7 @@
 package com.dxjia.sample;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -76,6 +77,8 @@ public class MainActivity extends Activity {
             mImageView3.toggle();
             mImageView4.toggle();
             return true;
+        } else if (id == R.id.action_Sample) {
+            startActivity(new Intent(MainActivity.this, com.dxjia.sample.Sample.class));
         }
 
         return super.onOptionsItemSelected(item);
