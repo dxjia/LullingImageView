@@ -18,7 +18,8 @@ a lulling image view.<br>
         app:duration="6000"/>
 ```	
 #TODO
-    to correct exatlly size function
+    to correct exatlly size function<br>
+    使用ScaleDrawable重新设计
 # Thanks
 [NineOldAndroids](https://github.com/JakeWharton/NineOldAndroids)
 
