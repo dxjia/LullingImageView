@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 
 import com.dxjia.lulling.R;
 
@@ -56,13 +58,17 @@ public class BillsShowingActivity extends Activity {
         mBillView3.setOnClick(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BillsShowingActivity.this, DetailActivity.class);
+                Animation animation = new TranslateAnimation(0, 0, mBillView3.getTop(), 0);
+                animation.setDuration(500);
+                animation.setFillAfter(true);
+                mBillView3.startAnimation(animation);
+                /*Intent intent = new Intent(BillsShowingActivity.this, DetailActivity.class);
                 intent.putExtra(BillView.KEY_IMAGE_RES_ID, R.mipmap.test_3);
                 intent.putExtra(BillView.KEY_TITLE_STR, "Dream / 带着梦想去旅行");
                 intent.putExtra(BillView.KEY_SIZE_INFO_STR, "#旅行  / 5'06'''");
                 intent.putExtra(BillView.KEY_DETAIL_STR, "因为采用了APS-C规格的X-Trans CMOS传感器，所以富士X-E1这款可换镜头相机拥有出色的画质表现。而且无低通滤镜的设计也让其拥有更锐利的成像画质。复古的机身外形也是X-E1受到关注的原因之一。");
                 startActivity(intent);
-                overridePendingTransition(0, 0);
+                overridePendingTransition(0, 0);*/
             }
         });
 
