@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dxjia.sample.BillsShowingActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.dxjia.sample.BillView
+                android:id="@+id/bill_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:image="@mipmap/test_1"
+                app:sizeInfoStr="#奇观  / 2'30''"
+                app:titleStr="Reventon / 浩瀚宇宙" />
+
+            <com.dxjia.sample.BillView
+                android:id="@+id/bill_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:image="@mipmap/test_2"
+                app:sizeInfoStr="#美景  / 3'45''"
+                app:titleStr="Flowers / 美丽芬芳的桃花" />
+
+            <com.dxjia.sample.BillView
+                android:id="@+id/bill_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:image="@mipmap/test_3"
+                app:sizeInfoStr="#旅行  / 5'06''"
+                app:titleStr="Dream / 带着梦想去旅行" />
+
+            <com.dxjia.sample.BillView
+                android:id="@+id/bill_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:image="@mipmap/test_4"
+                app:sizeInfoStr="#美景  / 4'26''"
+                app:titleStr="Sunshine / 邂逅清晨的阳光" />
+
+            <com.dxjia.sample.BillView
+                android:id="@+id/bill_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:image="@mipmap/test_5"
+                app:sizeInfoStr="#奇观  / 2'30''"
+                app:titleStr="Seaboard / 断崖下的海洋" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

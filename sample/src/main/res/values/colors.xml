@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color">#ffff0000</color>
+    <color name="mask_color">#40808080</color>
+    <color name="mask_color_2">#30808080</color>
+</resources>

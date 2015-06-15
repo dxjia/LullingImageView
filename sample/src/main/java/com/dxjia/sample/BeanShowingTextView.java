@@ -18,7 +18,7 @@ public class BeanShowingTextView extends TextView {
      * default duration
      * 20ms
      */
-    private static final int DEFAULT_DURATION = 20;
+    private static final int DEFAULT_DURATION = 15;
     /**
      * duration one by one
      * ms
@@ -63,13 +63,11 @@ public class BeanShowingTextView extends TextView {
 
     @SuppressLint("ResourceAsColor")
     private void init() {
-        // set transparent first
-        mOriginalTextColor = getCurrentTextColor();
+        mOriginalTextColor = android.R.color.white;//getCurrentTextColor();
         mOriginalText = (String) getText();
         mStringList = mOriginalText.split("");
         mCurrentIndex = 0;
 
-        super.setTextColor(transparent);
 
         mDuration = DEFAULT_DURATION;
         mHandler = new BeanShowingHandler();
@@ -87,7 +85,6 @@ public class BeanShowingTextView extends TextView {
                 case EVENT_BEAN_START:
                     mCurrentText = "";
                     mCurrentIndex = 0;
-                    setTextColor(mOriginalTextColor);
                     sendEmptyMessage(EVENT_BEAN_SHOW);
                     break;
                 case EVENT_BEAN_SHOW:
@@ -116,12 +113,13 @@ public class BeanShowingTextView extends TextView {
      * set text
      * @param text
      */
-    public void setText(String text) {
+    public void setText(String text, int textColor) {
         mHandler.removeMessages(EVENT_BEAN_SHOW);
         mHandler.removeMessages(EVENT_BEAN_START);
 
-        mOriginalTextColor = getCurrentTextColor();
-        setTextColor(transparent);
+        mOriginalTextColor = textColor;
+		// reset text
+        setText("");
         mOriginalText = text;
         mStringList = mOriginalText.split("");
 

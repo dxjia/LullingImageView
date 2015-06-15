@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="BillView">
+        <attr name="titleStr" format="string" />
+        <attr name="sizeInfoStr" format="string" />
+        <attr name="maskColor" format="color" />
+        <attr name="image" format="color|reference" />
+    </declare-styleable>
+</resources>

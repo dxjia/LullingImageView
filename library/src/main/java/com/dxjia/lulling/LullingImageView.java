@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import com.dxjia.library.R;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
+import android.os.Message;
+import android.os.Handler;
 
 /**
  * Created by dxjia on 15-6-5.
@@ -123,6 +125,7 @@ public class LullingImageView extends ImageView {
 
         typedArray.recycle();
 
+
         setScaleType(ScaleType.MATRIX);
         // record
         mScaleType = getScaleType();
@@ -131,9 +134,6 @@ public class LullingImageView extends ImageView {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        if (mAutoPlay) {
-            start();
-        }
     }
 
     @Override
@@ -168,7 +168,7 @@ public class LullingImageView extends ImageView {
      */
     private void stop() {
         if (mScaleValueAnimator == null) {
-            setScaleType(mScaleType);
+            setScaleType(ScaleType.MATRIX);
             return;
         }
 
@@ -179,7 +179,7 @@ public class LullingImageView extends ImageView {
         mScaleState = ScaleState.SCALE_NONE;
 
         // reset image
-        setScaleType(mScaleType);
+        setScaleType(ScaleType.MATRIX);
         resetDrawable();
     }
 
@@ -271,7 +271,7 @@ public class LullingImageView extends ImageView {
      * is animating
      * @return boolean
      */
-    private boolean ismAnimating() {
+    private boolean isAnimating() {
         if (mScaleValueAnimator == null) {
             return false;
         }
@@ -283,11 +283,30 @@ public class LullingImageView extends ImageView {
      * toggle animator
      */
     public void toggle() {
-        if (ismAnimating()) {
+        if (isAnimating()) {
             stop();
         } else {
             start();
         }
     }
 
+    public void setImage(int resid) {
+        if (isAnimating()) {
+            stop();
+        }
+        setScaleType(ScaleType.MATRIX);
+        setImageResource(resid);
+        //start();
+		mHandler.sendEmptyMessageDelayed(EVENT_START_DELAY, 500);
+    }
+	
+	private static int EVENT_START_DELAY = 100;
+	private Handler mHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+			if (msg.what == EVENT_START_DELAY) {
+				start();
+			}
+		}
+	};
 }

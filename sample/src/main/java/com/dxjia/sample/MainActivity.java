@@ -72,13 +72,14 @@ public class MainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_Toggle) {
-            mImageView1.toggle();
+            /*mImageView1.toggle();
             mImageView2.toggle();
             mImageView3.toggle();
-            mImageView4.toggle();
+            mImageView4.toggle();*/
+            startActivity(new Intent(MainActivity.this, BillsShowingActivity.class));
             return true;
         } else if (id == R.id.action_Sample) {
-            startActivity(new Intent(MainActivity.this, com.dxjia.sample.Sample.class));
+            startActivity(new Intent(MainActivity.this, DetailActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
